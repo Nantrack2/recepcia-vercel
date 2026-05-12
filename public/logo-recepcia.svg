@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title>RecepcIA</title>
+  <desc>Golden circular microphone and headset mark.</desc>
+  <defs>
+    <linearGradient id="gold" x1="16" x2="112" y1="16" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f1cc82"/>
+      <stop offset="0.45" stop-color="#c99746"/>
+      <stop offset="1" stop-color="#8d5c23"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="64" fill="none"/>
+  <circle cx="64" cy="64" r="52" fill="none" stroke="url(#gold)" stroke-width="5"/>
+  <circle cx="64" cy="64" r="42" fill="none" stroke="url(#gold)" stroke-width="3" opacity="0.72"/>
+  <path d="M28 67v-8c0-20 16-36 36-36s36 16 36 36v8" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M31 66c0-6 5-11 11-11h2v25h-2c-6 0-11-5-11-11v-3Zm66 0c0-6-5-11-11-11h-2v25h2c6 0 11-5 11-11v-3Z" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="50" y="37" width="28" height="47" rx="14" fill="none" stroke="url(#gold)" stroke-width="5"/>
+  <path d="M64 84v16m-16 0h32M43 69c0 12 9 22 21 22s21-10 21-22" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M57 51h14M57 62h14M57 73h14" stroke="url(#gold)" stroke-width="3" stroke-linecap="round" opacity="0.78"/>
+</svg>
