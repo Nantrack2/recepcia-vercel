@@ -11,10 +11,9 @@ import {
   Hotel,
   Mail,
   Menu,
-  MessageSquare,
+  MessageCircle,
   Phone,
   ShieldCheck,
-  Sparkles,
   X
 } from 'lucide-react';
 import './styles.css';
@@ -416,113 +415,119 @@ function ContactForm() {
   };
 
   return (
-    <section id="contacto" className="section-shell contact-section">
-      <div className="contact-copy">
-        <span className="section-kicker">Demo gratuita</span>
-        <h2>Cuéntanos qué parte de tu recepción quieres automatizar.</h2>
-        <p>
-          Recibirás una respuesta para revisar tu caso y priorizar una primera automatización segura.
-        </p>
+    <section id="contacto" className="contact-band">
+      <div className="section-shell contact-section">
+        <div className="contact-copy">
+          <span className="section-kicker">Demo gratuita</span>
+          <h2>Cuéntanos qué parte de tu recepción quieres automatizar.</h2>
+          <p>
+            Recibirás una respuesta para revisar tu caso y priorizar una primera automatización
+            segura, con atención y captación preparada para funcionar 24/7.
+          </p>
 
-        <div className="contact-methods">
-          <a href="mailto:info@pimeia.es">
-            <Mail size={18} /> info@pimeia.es
-          </a>
-          <a href="tel:+34609785645">
-            <Phone size={18} /> 609 785 645
-          </a>
-          <span>
-            <MessageSquare size={18} /> RecepcIA · hoteles
-          </span>
+          <div className="contact-methods">
+            <a href="mailto:info@pimeia.es">
+              <Mail size={18} /> info@pimeia.es
+            </a>
+            <a href="tel:+34936943575">
+              <Phone size={18} /> 936 943 575
+            </a>
+            <a href="https://wa.me/34609785645" target="_blank" rel="noreferrer">
+              <MessageCircle size={18} /> WhatsApp · 609 785 645
+            </a>
+            <span>
+              <Clock3 size={18} /> Atención inteligente 24/7
+            </span>
+          </div>
         </div>
+
+        <form className="lead-form" onSubmit={submitLead} noValidate>
+          <input
+            className="honeypot"
+            type="text"
+            name="website"
+            value={formData.website}
+            onChange={updateField}
+            tabIndex="-1"
+            autoComplete="off"
+            aria-hidden="true"
+          />
+
+          <label>
+            Nombre *
+            <input
+              name="name"
+              value={formData.name}
+              onChange={updateField}
+              required
+              placeholder="Tu nombre"
+            />
+          </label>
+
+          <label>
+            Teléfono
+            <input
+              name="phone"
+              value={formData.phone}
+              onChange={updateField}
+              placeholder="+34 600 000 000"
+            />
+          </label>
+
+          <label>
+            Email *
+            <input
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={updateField}
+              required
+              placeholder="tu@email.com"
+            />
+          </label>
+
+          <label>
+            Nombre del negocio
+            <input
+              name="business_name"
+              value={formData.business_name}
+              onChange={updateField}
+              placeholder="Hotel, hostal o alojamiento"
+            />
+          </label>
+
+          <label className="full-width">
+            Mensaje
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={updateField}
+              rows="4"
+              placeholder="Explícanos qué quieres automatizar en recepción"
+            />
+          </label>
+
+          <label className="checkbox full-width">
+            <input
+              type="checkbox"
+              name="consent"
+              checked={formData.consent}
+              onChange={updateField}
+            />
+            <span>
+              Acepto que RecepcIA / PimeIA trate estos datos para contactar conmigo sobre mi
+              solicitud.
+            </span>
+          </label>
+
+          {status.message && <div className={`form-status ${status.state}`}>{status.message}</div>}
+
+          <button className="primary-button full-width" type="submit" disabled={status.state === 'loading'}>
+            {status.state === 'loading' ? 'Enviando...' : 'Quiero automatizar mi negocio'}{' '}
+            <ArrowRight size={18} />
+          </button>
+        </form>
       </div>
-
-      <form className="lead-form" onSubmit={submitLead} noValidate>
-        <input
-          className="honeypot"
-          type="text"
-          name="website"
-          value={formData.website}
-          onChange={updateField}
-          tabIndex="-1"
-          autoComplete="off"
-          aria-hidden="true"
-        />
-
-        <label>
-          Nombre *
-          <input
-            name="name"
-            value={formData.name}
-            onChange={updateField}
-            required
-            placeholder="Tu nombre"
-          />
-        </label>
-
-        <label>
-          Teléfono
-          <input
-            name="phone"
-            value={formData.phone}
-            onChange={updateField}
-            placeholder="+34 600 000 000"
-          />
-        </label>
-
-        <label>
-          Email *
-          <input
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={updateField}
-            required
-            placeholder="tu@email.com"
-          />
-        </label>
-
-        <label>
-          Nombre del negocio
-          <input
-            name="business_name"
-            value={formData.business_name}
-            onChange={updateField}
-            placeholder="Hotel, hostal o alojamiento"
-          />
-        </label>
-
-        <label className="full-width">
-          Mensaje
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={updateField}
-            rows="4"
-            placeholder="Explícanos qué quieres automatizar en recepción"
-          />
-        </label>
-
-        <label className="checkbox full-width">
-          <input
-            type="checkbox"
-            name="consent"
-            checked={formData.consent}
-            onChange={updateField}
-          />
-          <span>
-            Acepto que RecepcIA / PimeIA trate estos datos para contactar conmigo sobre mi
-            solicitud.
-          </span>
-        </label>
-
-        {status.message && <div className={`form-status ${status.state}`}>{status.message}</div>}
-
-        <button className="primary-button full-width" type="submit" disabled={status.state === 'loading'}>
-          {status.state === 'loading' ? 'Enviando...' : 'Quiero automatizar mi negocio'}{' '}
-          <ArrowRight size={18} />
-        </button>
-      </form>
     </section>
   );
 }
