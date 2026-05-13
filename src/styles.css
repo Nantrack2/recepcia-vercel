@@ -1029,3 +1029,57 @@ textarea {
     height: 54px;
   }
 }
+/* Final hero/background/logo alignment override */
+
+.brand {
+  gap: 0.35rem;
+}
+
+.brand-mark {
+  margin-right: 0;
+}
+
+.hero {
+  isolation: isolate;
+}
+
+.hero-bg {
+  z-index: 0;
+}
+
+.hero-bg img {
+  opacity: 1;
+  filter: saturate(0.9) contrast(0.98) brightness(1.04);
+}
+
+.hero-overlay {
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(246, 242, 235, 0.96) 0%,
+      rgba(246, 242, 235, 0.82) 34%,
+      rgba(246, 242, 235, 0.46) 66%,
+      rgba(246, 242, 235, 0.14) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(246, 242, 235, 0.18) 0%,
+      rgba(246, 242, 235, 0.72) 100%
+    );
+}
+
+.gold-thread {
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 680px) {
+  .brand {
+    gap: 0.25rem;
+  }
+}
