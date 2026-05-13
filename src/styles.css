@@ -1083,3 +1083,115 @@ textarea {
     gap: 0.25rem;
   }
 }
+/* Final premium navbar and hero typography tuning */
+
+.header-inner {
+  height: 112px;
+}
+
+.site-header.is-scrolled .header-inner {
+  height: 88px;
+}
+
+.brand {
+  gap: 0.45rem;
+  font-size: 2.35rem;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.brand-mark,
+.brand-mark img {
+  width: 102px;
+  height: 102px;
+}
+
+.site-header.is-scrolled .brand-mark,
+.site-header.is-scrolled .brand-mark img {
+  width: 78px;
+  height: 78px;
+}
+
+.hero {
+  padding-top: 8.9rem;
+}
+
+.hero-content {
+  max-width: 690px;
+}
+
+h1 {
+  max-width: 11.4ch;
+  font-size: clamp(3.8rem, 5.8vw, 5.95rem);
+  line-height: 0.96;
+  letter-spacing: -0.058em;
+  font-weight: 600;
+}
+
+h1 em {
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.hero-subtitle {
+  max-width: 560px;
+  font-size: clamp(1.03rem, 1.35vw, 1.17rem);
+  line-height: 1.6;
+}
+
+.eyebrow {
+  margin-bottom: 0.85rem;
+}
+
+.hero-actions {
+  margin-top: 1.9rem;
+  margin-bottom: 3.3rem;
+}
+
+@media (max-width: 980px) {
+  .brand {
+    font-size: 1.85rem;
+  }
+
+  .brand-mark,
+  .brand-mark img {
+    width: 78px;
+    height: 78px;
+  }
+
+  h1 {
+    font-size: clamp(3.3rem, 10vw, 5rem);
+  }
+}
+
+@media (max-width: 680px) {
+  .header-inner {
+    height: 88px;
+  }
+
+  .site-header.is-scrolled .header-inner {
+    height: 74px;
+  }
+
+  .brand {
+    font-size: 1.45rem;
+    gap: 0.35rem;
+  }
+
+  .brand-mark,
+  .brand-mark img {
+    width: 62px;
+    height: 62px;
+  }
+
+  .site-header.is-scrolled .brand-mark,
+  .site-header.is-scrolled .brand-mark img {
+    width: 52px;
+    height: 52px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 13vw, 4.35rem);
+    line-height: 0.98;
+  }
+}
