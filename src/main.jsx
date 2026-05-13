@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   ArrowRight,
-  Bot,
   CalendarCheck,
   CheckCircle2,
   ChevronDown,
@@ -20,7 +19,7 @@ import {
 } from 'lucide-react';
 import './styles.css';
 
-const LOGO_SRC = '/logo-recepcia.svg';
+const LOGO_SRC = '/logo-recepcia.png';
 
 const HOTEL_IMAGE =
   'https://media.base44.com/images/public/6a0199cf8fb5d6b97d254986/bcbf18578_generated_image.png';
@@ -117,6 +116,7 @@ function Header() {
     const onScroll = () => setScrolled(window.scrollY > 32);
     window.addEventListener('scroll', onScroll);
     onScroll();
+
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -141,7 +141,7 @@ function Header() {
         </nav>
 
         <a className="header-cta" href="#contacto">
-          Agendar demo
+          Agendar Demo
         </a>
 
         <button
@@ -172,7 +172,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" className="hero">
+    <section id="inicio" className="hero base44-hero">
       <div className="hero-bg" aria-hidden="true">
         <img src={HOTEL_IMAGE} alt="" />
         <div className="hero-overlay" />
@@ -180,7 +180,7 @@ function Hero() {
 
       <div className="gold-thread" aria-hidden="true" />
 
-      <div className="hero-inner">
+      <div className="hero-inner hero-inner-single">
         <div className="hero-content reveal">
           <span className="eyebrow">
             <span className="eyebrow-line" />
@@ -208,7 +208,7 @@ function Hero() {
           <div className="hero-metrics" aria-label="Indicadores principales">
             <div>
               <strong>80%</strong>
-              <span>mejor seguimiento</span>
+              <span>conversión de leads</span>
             </div>
             <div>
               <strong>15h</strong>
@@ -220,40 +220,6 @@ function Hero() {
             </div>
           </div>
         </div>
-
-        <aside className="hero-card reveal delay" aria-label="Resumen de RecepcIA">
-          <div className="hero-card-top">
-            <span className="pulse-dot" />
-            <span>Recepción asistida</span>
-          </div>
-
-          <div className="agent-circle">
-            <Bot size={56} />
-          </div>
-
-          <div>
-            <h2>Tu primera capa de atención inteligente</h2>
-            <p>
-              Recoge solicitudes, clasifica oportunidades y avisa al equipo cuando entra un nuevo
-              lead cualificado.
-            </p>
-          </div>
-
-          <div className="metric-grid">
-            <div>
-              <strong>24/7</strong>
-              <span>disponibilidad</span>
-            </div>
-            <div>
-              <strong>IA</strong>
-              <span>voz y datos</span>
-            </div>
-            <div>
-              <strong>CRM</strong>
-              <span>seguimiento</span>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
   );
@@ -380,6 +346,7 @@ function ContactForm() {
 
   const updateField = (event) => {
     const { name, value, type, checked } = event.target;
+
     setFormData((current) => ({
       ...current,
       [name]: type === 'checkbox' ? checked : value
@@ -484,12 +451,23 @@ function ContactForm() {
 
         <label>
           Nombre *
-          <input name="name" value={formData.name} onChange={updateField} required placeholder="Tu nombre" />
+          <input
+            name="name"
+            value={formData.name}
+            onChange={updateField}
+            required
+            placeholder="Tu nombre"
+          />
         </label>
 
         <label>
           Teléfono
-          <input name="phone" value={formData.phone} onChange={updateField} placeholder="+34 600 000 000" />
+          <input
+            name="phone"
+            value={formData.phone}
+            onChange={updateField}
+            placeholder="+34 600 000 000"
+          />
         </label>
 
         <label>
@@ -526,14 +504,23 @@ function ContactForm() {
         </label>
 
         <label className="checkbox full-width">
-          <input type="checkbox" name="consent" checked={formData.consent} onChange={updateField} />
-          <span>Acepto que RecepcIA / PimeIA trate estos datos para contactar conmigo sobre mi solicitud.</span>
+          <input
+            type="checkbox"
+            name="consent"
+            checked={formData.consent}
+            onChange={updateField}
+          />
+          <span>
+            Acepto que RecepcIA / PimeIA trate estos datos para contactar conmigo sobre mi
+            solicitud.
+          </span>
         </label>
 
         {status.message && <div className={`form-status ${status.state}`}>{status.message}</div>}
 
         <button className="primary-button full-width" type="submit" disabled={status.state === 'loading'}>
-          {status.state === 'loading' ? 'Enviando...' : 'Quiero automatizar mi negocio'} <ArrowRight size={18} />
+          {status.state === 'loading' ? 'Enviando...' : 'Quiero automatizar mi negocio'}{' '}
+          <ArrowRight size={18} />
         </button>
       </form>
     </section>
