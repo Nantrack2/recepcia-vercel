@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   ArrowRight,
-  CalendarCheck,
+  ArrowUpRight,
+  CalendarDays,
   CheckCircle2,
   ChevronDown,
   Clock3,
@@ -14,14 +15,19 @@ import {
   MessageCircle,
   Phone,
   ShieldCheck,
+  Sparkles,
+  Target,
   X
 } from 'lucide-react';
 import './styles.css';
 
 const LOGO_SRC = '/logo-recepcia.png';
 
-const HOTEL_IMAGE =
+const RECEPTION_IMAGE =
   'https://media.base44.com/images/public/6a0199cf8fb5d6b97d254986/bcbf18578_generated_image.png';
+
+const DETAIL_IMAGE =
+  'https://media.base44.com/images/public/6a0199cf8fb5d6b97d254986/2ecc67a6b_generated_0e00bcdf.png';
 
 const navItems = [
   { label: 'Problemas', href: '#problemas' },
@@ -31,71 +37,132 @@ const navItems = [
   { label: 'FAQ', href: '#faq' }
 ];
 
-const problems = [
-  'Llamadas sin responder cuando recepción está saturada.',
-  'Preguntas repetitivas que consumen tiempo del equipo.',
-  'Reservas potenciales que se pierden fuera del horario laboral.',
-  'Información dispersa entre recepción, email, teléfono y WhatsApp.'
-];
-
-const solutions = [
+const challengeCards = [
   {
-    icon: <Headphones aria-hidden="true" />,
-    title: 'Agente de voz IA',
-    text: 'Atiende consultas frecuentes, recoge datos clave y deriva al equipo humano solo los casos que lo necesitan.'
+    icon: <Clock3 aria-hidden="true" />,
+    title: 'Leads sin responder',
+    text: 'Cada minuto cuenta, puedes perder reservas oportunamente.'
   },
   {
     icon: <DatabaseZap aria-hidden="true" />,
-    title: 'Base de datos inteligente',
-    text: 'Centraliza solicitudes, contactos, preferencias y próximos pasos para evitar oportunidades perdidas.'
+    title: 'Procesos manuales',
+    text: 'La carga de trabajo innecesaria está afectando tu eficiencia.'
   },
   {
-    icon: <Clock3 aria-hidden="true" />,
-    title: 'Atención 24/7',
-    text: 'Tu hotel puede responder incluso cuando recepción está ocupada o fuera del horario habitual.'
+    icon: <Target aria-hidden="true" />,
+    title: 'Falta de seguimiento',
+    text: 'Las oportunidades que no se siguen adecuadamente no convierten.'
   },
   {
-    icon: <CalendarCheck aria-hidden="true" />,
-    title: 'Seguimiento comercial',
-    text: 'Cada lead queda registrado para que puedas contactar, cualificar y cerrar más reservas.'
+    icon: <CalendarDays aria-hidden="true" />,
+    title: 'No-shows',
+    text: 'La falta de confirmaciones afecta tu tasa de ocupación.'
+  }
+];
+
+const solutionCards = [
+  {
+    icon: <Headphones aria-hidden="true" />,
+    title: 'Agente de Voz IA en Recepción',
+    text: 'Una recepcionista virtual con voz natural atiende llamadas y consultas de huéspedes las 24 horas, los 7 días de la semana.',
+    tag: 'Voz natural 24/7'
+  },
+  {
+    icon: <DatabaseZap aria-hidden="true" />,
+    title: 'Base de Datos Inteligente',
+    text: 'Gestiona automáticamente reservas, preferencias del huésped e historial de estancia con acceso inmediato.',
+    tag: 'Acceso instantáneo'
+  },
+  {
+    icon: <CheckCircle2 aria-hidden="true" />,
+    title: 'Check-in y Check-out Automatizado',
+    text: 'Proceso de entrada y salida sin esperas, gestionado por IA con validación de identidad y asignación de habitaciones.',
+    tag: 'Tiempo de espera'
+  },
+  {
+    icon: <MessageCircle aria-hidden="true" />,
+    title: 'Atención al Cliente Omnicanal',
+    text: 'Un único agente IA responde por teléfono, WhatsApp, email y chat web con coherencia total y tono personalizado.',
+    tag: 'Todos los canales'
   }
 ];
 
 const processSteps = [
   {
-    title: 'Diagnóstico inicial',
-    text: 'Detectamos dónde se pierden llamadas, solicitudes y oportunidades comerciales.'
+    number: '01',
+    title: 'Consultoría gratuita',
+    text: 'Entendemos tus necesidades específicas y los desafíos de tu hotel.'
   },
   {
-    title: 'Diseño del flujo',
-    text: 'Definimos qué debe responder la IA, qué datos recoger y cuándo debe avisar al equipo.'
+    number: '02',
+    title: 'Implementación IA',
+    text: 'Configuramos e implementamos la solución de IA personalizada.'
   },
   {
-    title: 'Primera automatización',
-    text: 'Activamos una capa segura de captación y seguimiento sin alterar tu operativa actual.'
+    number: '03',
+    title: 'Resultados',
+    text: 'Obtén resultados medibles en una semana para empezar.'
+  }
+];
+
+const testimonials = [
+  {
+    quote:
+      'Hemos aumentado nuestras conversiones en un 40%. ¡RecepcIA es una inversión que vale la pena!',
+    name: 'María Rodríguez',
+    role: 'Directora, Hotel Boutique Las Palmas'
   },
   {
-    title: 'Mejora continua',
-    text: 'Medimos resultados y priorizamos nuevas automatizaciones con impacto real.'
+    quote:
+      'Ahorro 15 horas a la semana gracias a la automatización. ¡Recomiendo RecepcIA sin dudarlo!',
+    name: 'Carlos Mendoza',
+    role: 'Propietario, Resort Vista Mar'
+  }
+];
+
+const benefits = [
+  {
+    icon: <ArrowUpRight aria-hidden="true" />,
+    title: 'Aumento de Reservas',
+    text: 'Captación de clientes optimizada con inteligencia artificial.'
+  },
+  {
+    icon: <Clock3 aria-hidden="true" />,
+    title: 'Menos Trabajo Manual',
+    text: 'Automatización que te libera tiempo para lo que realmente importa.'
+  },
+  {
+    icon: <Headphones aria-hidden="true" />,
+    title: 'Mejora en la Comunicación',
+    text: 'Respuestas 24/7 a potenciales huéspedes sin intervención humana.'
+  },
+  {
+    icon: <Target aria-hidden="true" />,
+    title: 'Seguimiento Efectivo',
+    text: 'Conversión de leads asegurada con seguimiento inteligente.'
   }
 ];
 
 const faqs = [
   {
-    q: '¿RecepcIA sustituye al personal de recepción?',
-    a: 'No. Está pensada para reducir tareas repetitivas, mejorar la respuesta inicial y liberar tiempo del equipo humano.'
+    q: '¿Cuánto tiempo lleva implementar estas soluciones?',
+    a: 'La primera capa puede prepararse de forma progresiva. Empezamos con captación y seguimiento antes de automatizar procesos más avanzados.'
   },
   {
-    q: '¿Se puede adaptar a un hotel pequeño?',
-    a: 'Sí. Puede empezar con captación de leads, consultas frecuentes y seguimiento manual antes de automatizar más procesos.'
+    q: '¿Qué tipo de soporte recibiré después de la implementación?',
+    a: 'Recibirás acompañamiento para revisar resultados, ajustar mensajes y priorizar mejoras con impacto real.'
   },
   {
-    q: '¿Qué ocurre cuando entra una solicitud?',
-    a: 'La solicitud queda registrada y recibes un aviso interno con los datos necesarios para contactar con el cliente.'
+    q: '¿Se puede personalizar la herramienta según mis necesidades?',
+    a: 'Sí. RecepcIA se adapta al tipo de alojamiento, tono de comunicación, horarios y procesos internos.'
   },
   {
-    q: '¿Los datos quedan protegidos?',
-    a: 'Sí. El formulario envía la solicitud a través de un backend seguro y no expone claves privadas en el navegador.'
+    q: '¿Cómo se integrará con mi sistema actual?',
+    a: 'Primero analizamos tu sistema actual. Después conectamos solo lo necesario, evitando cambios bruscos o riesgos innecesarios.'
+  },
+  {
+    q: '¿Qué resultados puedo esperar a corto plazo?',
+    a: 'Menos leads perdidos, mejor respuesta inicial, más seguimiento y una recepción menos saturada.'
   }
 ];
 
@@ -171,16 +238,14 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" className="hero base44-hero">
+    <section id="inicio" className="hero">
       <div className="hero-bg" aria-hidden="true">
-        <img src={HOTEL_IMAGE} alt="" />
+        <img src={RECEPTION_IMAGE} alt="" />
         <div className="hero-overlay" />
       </div>
 
-      <div className="gold-thread" aria-hidden="true" />
-
-      <div className="hero-inner hero-inner-single">
-        <div className="hero-content reveal">
+      <div className="hero-inner">
+        <div className="hero-content">
           <span className="eyebrow">
             <span className="eyebrow-line" />
             Automatización de recepciones hoteleras
@@ -197,7 +262,7 @@ function Hero() {
 
           <div className="hero-actions">
             <a className="primary-button" href="#contacto">
-              Agendar demo gratuita <ArrowRight size={18} />
+              Agendar demo gratuita <ArrowRight size={17} />
             </a>
             <a className="secondary-button" href="#soluciones">
               Conocer soluciones
@@ -226,19 +291,26 @@ function Hero() {
 
 function Problems() {
   return (
-    <section id="problemas" className="section-shell content-section">
-      <div className="section-heading">
-        <span className="section-kicker">Problemas habituales</span>
-        <h2>La recepción pierde oportunidades cuando todo depende de disponibilidad humana.</h2>
+    <section id="problemas" className="section-shell challenge-section">
+      <div className="section-heading centered">
+        <span className="section-kicker">El desafío</span>
+        <h2>¿Cuáles son los desafíos que enfrentas?</h2>
       </div>
 
-      <div className="problem-list">
-        {problems.map((problem) => (
-          <article key={problem} className="problem-card">
-            <ShieldCheck size={24} aria-hidden="true" />
-            <p>{problem}</p>
+      <div className="challenge-grid">
+        {challengeCards.map((card) => (
+          <article className="challenge-card" key={card.title}>
+            <span className="mini-icon">{card.icon}</span>
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
           </article>
         ))}
+      </div>
+
+      <div className="centered-action">
+        <a className="primary-button small-button" href="#soluciones">
+          Resolver estos problemas
+        </a>
       </div>
     </section>
   );
@@ -246,20 +318,52 @@ function Problems() {
 
 function Solutions() {
   return (
-    <section id="soluciones" className="section-shell content-section">
-      <div className="section-heading centered">
-        <span className="section-kicker">Soluciones</span>
-        <h2>Una capa de IA para mejorar respuesta, registro y seguimiento.</h2>
+    <section id="soluciones" className="section-shell solutions-section">
+      <div className="section-heading left">
+        <span className="section-kicker">Nuestras soluciones</span>
+        <h2>Automatiza tu Recepción con RecepcIA</h2>
       </div>
 
+      <figure className="wide-image">
+        <img src={RECEPTION_IMAGE} alt="Recepción de hotel elegante" />
+        <figcaption>“La recepción que nunca duerme.”</figcaption>
+      </figure>
+
       <div className="solution-grid">
-        {solutions.map((solution) => (
-          <article key={solution.title} className="solution-card">
-            <div className="solution-icon">{solution.icon}</div>
-            <h3>{solution.title}</h3>
-            <p>{solution.text}</p>
+        {solutionCards.map((card) => (
+          <article className="solution-card" key={card.title}>
+            <span className="solution-icon">{card.icon}</span>
+            <div>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+              <small>{card.tag}</small>
+            </div>
           </article>
         ))}
+      </div>
+
+      <div className="dark-metrics">
+        <article>
+          <strong>80%</strong>
+          <span>de conversión en leads</span>
+          <small>con atención inmediata</small>
+        </article>
+        <article>
+          <strong>15h</strong>
+          <span>ahorro a la semana</span>
+          <small>en procesos manuales</small>
+        </article>
+        <article>
+          <strong>+30%</strong>
+          <span>captación de clientes</span>
+          <small>con campañas automatizadas</small>
+        </article>
+      </div>
+
+      <div className="centered-action">
+        <a className="primary-button small-button" href="#contacto">
+          Quiero estas soluciones <ArrowRight size={15} />
+        </a>
       </div>
     </section>
   );
@@ -267,26 +371,32 @@ function Solutions() {
 
 function Process() {
   return (
-    <section id="proceso" className="section-shell content-section split-section">
-      <div>
-        <span className="section-kicker">Proceso</span>
-        <h2>Empezamos pequeño, medimos y escalamos con control.</h2>
-        <p className="muted-text">
-          La prioridad es capturar oportunidades sin romper procesos actuales ni comprometer datos
-          sensibles.
-        </p>
-      </div>
+    <section id="proceso" className="process-band">
+      <div className="section-shell process-layout">
+        <div className="process-image">
+          <img src={DETAIL_IMAGE} alt="Detalle elegante de hotel" />
+        </div>
 
-      <div className="steps">
-        {processSteps.map((step, index) => (
-          <article className="step" key={step.title}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </div>
-          </article>
-        ))}
+        <div className="process-content">
+          <span className="section-kicker">El proceso</span>
+          <h2>Así de fácil es comenzar</h2>
+
+          <div className="process-steps">
+            {processSteps.map((step) => (
+              <article key={step.number}>
+                <span>{step.number}</span>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <a className="primary-button small-button" href="#contacto">
+            Agendar consultoría <ArrowRight size={15} />
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -294,25 +404,72 @@ function Process() {
 
 function Testimonials() {
   return (
-    <section id="testimonios" className="section-shell content-section testimonial-section">
-      <article className="testimonial-card">
-        <Hotel size={42} aria-hidden="true" />
-        <blockquote>
-          “La automatización de recepción no empieza sustituyendo personas. Empieza evitando
-          llamadas perdidas, datos duplicados y oportunidades sin seguimiento.”
-        </blockquote>
-        <p>RecepcIA · vertical hotelera de PimeIA</p>
-      </article>
+    <section id="testimonios" className="section-shell testimonials-section">
+      <div className="section-heading centered">
+        <span className="section-kicker">Testimonios</span>
+        <h2>Lo que dicen nuestros clientes</h2>
+      </div>
+
+      <div className="testimonial-grid">
+        {testimonials.map((item) => (
+          <article className="testimonial-card" key={item.name}>
+            <div className="stars">★★★★★</div>
+            <blockquote>“{item.quote}”</blockquote>
+            <div className="author">
+              <div className="avatar" aria-hidden="true" />
+              <div>
+                <strong>{item.name}</strong>
+                <span>{item.role}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="centered-action">
+        <a className="primary-button small-button" href="#contacto">
+          Quiero resultados así <ArrowRight size={15} />
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function Benefits() {
+  return (
+    <section className="benefits-band">
+      <div className="section-shell benefits-section">
+        <div className="section-heading centered">
+          <span className="section-kicker">Beneficios</span>
+          <h2>¿Qué lograrás con RecepcIA?</h2>
+        </div>
+
+        <div className="benefit-grid">
+          {benefits.map((benefit) => (
+            <article key={benefit.title}>
+              <span className="benefit-icon">{benefit.icon}</span>
+              <h3>{benefit.title}</h3>
+              <p>{benefit.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="centered-action">
+          <a className="primary-button small-button" href="#contacto">
+            Comenzar ahora <ArrowRight size={15} />
+          </a>
+        </div>
+      </div>
     </section>
   );
 }
 
 function FAQ() {
   return (
-    <section id="faq" className="section-shell content-section">
+    <section id="faq" className="section-shell faq-section">
       <div className="section-heading centered">
         <span className="section-kicker">FAQ</span>
-        <h2>Preguntas frecuentes</h2>
+        <h2>Preguntas Frecuentes</h2>
       </div>
 
       <div className="faq-list">
@@ -320,11 +477,17 @@ function FAQ() {
           <details key={item.q}>
             <summary>
               <span>{item.q}</span>
-              <ChevronDown size={18} aria-hidden="true" />
+              <ChevronDown size={16} aria-hidden="true" />
             </summary>
             <p>{item.a}</p>
           </details>
         ))}
+      </div>
+
+      <div className="centered-action">
+        <a className="secondary-button small-button" href="#contacto">
+          Resolver mis dudas <ArrowRight size={15} />
+        </a>
       </div>
     </section>
   );
@@ -379,7 +542,8 @@ function ContactForm() {
           message: formData.message,
           website: formData.website,
           consent: formData.consent,
-          page_url: window.location.href
+          page_url: window.location.href,
+          user_agent: navigator.userAgent
         })
       });
 
@@ -415,33 +579,15 @@ function ContactForm() {
   };
 
   return (
-    <section id="contacto" className="contact-band">
-      <div className="section-shell contact-section">
-        <div className="contact-copy">
-          <span className="section-kicker">Demo gratuita</span>
-          <h2>Cuéntanos qué parte de tu recepción quieres automatizar.</h2>
-          <p>
-            Recibirás una respuesta para revisar tu caso y priorizar una primera automatización
-            segura, con atención y captación preparada para funcionar 24/7.
-          </p>
-
-          <div className="contact-methods">
-            <a href="mailto:info@pimeia.es">
-              <Mail size={18} /> info@pimeia.es
-            </a>
-            <a href="tel:+34936943575">
-              <Phone size={18} /> 936 943 575
-            </a>
-            <a href="https://wa.me/34609785645" target="_blank" rel="noreferrer">
-              <MessageCircle size={18} /> WhatsApp · 609 785 645
-            </a>
-            <span>
-              <Clock3 size={18} /> Atención inteligente 24/7
-            </span>
-          </div>
+    <section id="contacto" className="contact-minimal-section">
+      <div className="section-shell">
+        <div className="section-heading centered contact-heading">
+          <span className="section-kicker">Contacto</span>
+          <h2>Listo para Automatizar tu Negocio</h2>
+          <p>Completa el formulario y un especialista se pondrá en contacto contigo.</p>
         </div>
 
-        <form className="lead-form" onSubmit={submitLead} noValidate>
+        <form className="minimal-form" onSubmit={submitLead} noValidate>
           <input
             className="honeypot"
             type="text"
@@ -460,7 +606,7 @@ function ContactForm() {
               value={formData.name}
               onChange={updateField}
               required
-              placeholder="Tu nombre"
+              placeholder="Tu nombre completo"
             />
           </label>
 
@@ -492,7 +638,7 @@ function ContactForm() {
               name="business_name"
               value={formData.business_name}
               onChange={updateField}
-              placeholder="Hotel, hostal o alojamiento"
+              placeholder="Hotel / Resort"
             />
           </label>
 
@@ -503,7 +649,7 @@ function ContactForm() {
               value={formData.message}
               onChange={updateField}
               rows="4"
-              placeholder="Explícanos qué quieres automatizar en recepción"
+              placeholder="Cuéntanos sobre tu hotel y qué te gustaría automatizar..."
             />
           </label>
 
@@ -515,8 +661,8 @@ function ContactForm() {
               onChange={updateField}
             />
             <span>
-              Acepto que RecepcIA / PimeIA trate estos datos para contactar conmigo sobre mi
-              solicitud.
+              Acepto que <strong>RecepcIA / PimeIA</strong> trate mis datos para contactar conmigo sobre mi solicitud.
+              <small> Campo obligatorio</small>
             </span>
           </label>
 
@@ -524,9 +670,43 @@ function ContactForm() {
 
           <button className="primary-button full-width" type="submit" disabled={status.state === 'loading'}>
             {status.state === 'loading' ? 'Enviando...' : 'Quiero automatizar mi negocio'}{' '}
-            <ArrowRight size={18} />
+            <ArrowRight size={17} />
           </button>
         </form>
+
+        <div className="contact-inline">
+          <a href="mailto:info@pimeia.es">
+            <Mail size={16} /> info@pimeia.es
+          </a>
+          <a href="tel:+34936943575">
+            <Phone size={16} /> 936 943 575
+          </a>
+          <a href="https://wa.me/34609785645" target="_blank" rel="noreferrer">
+            <MessageCircle size={16} /> WhatsApp · 609 785 645
+          </a>
+          <span>
+            <Clock3 size={16} /> Atención inteligente 24/7
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FinalCTA() {
+  return (
+    <section className="final-cta">
+      <div className="section-shell">
+        <h2>
+          Toma el Control de tu <em>Futuro</em>
+        </h2>
+        <p>
+          No dejes que la falta de tecnología limite tu crecimiento. La inteligencia artificial
+          está transformando la industria hotelera.
+        </p>
+        <a className="gold-button" href="#contacto">
+          Agendar mi demo gratuita <ArrowRight size={16} />
+        </a>
       </div>
     </section>
   );
@@ -535,13 +715,22 @@ function ContactForm() {
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="brand footer-brand">
+      <div className="footer-brand">
         <Logo />
         <span>
           Recepc<span>IA</span>
         </span>
       </div>
-      <p>RecepcIA es una landing vertical de PimeIA para automatización hotelera con IA.</p>
+
+      <nav>
+        <a href="#problemas">Problemas</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <p>© 2026 RecepcIA. Todos los derechos reservados.</p>
     </footer>
   );
 }
@@ -556,8 +745,10 @@ function App() {
         <Solutions />
         <Process />
         <Testimonials />
+        <Benefits />
         <FAQ />
         <ContactForm />
+        <FinalCTA />
       </main>
       <Footer />
     </>
