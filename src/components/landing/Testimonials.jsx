@@ -24,17 +24,17 @@ export default function Testimonials() {
       id="testimonios"
       className="relative overflow-hidden py-24 lg:py-32 bg-background"
     >
-      {/* Imagen de fondo difuminada */}
+      {/* Imagen de fondo elegante, visible y suavemente difuminada */}
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 scale-110 bg-center bg-cover blur-[10px] opacity-55"
+          className="absolute inset-0 scale-105 bg-center bg-cover blur-[3px] opacity-75"
           style={{ backgroundImage: "url('/testimonials-bg.png')" }}
         />
 
-        {/* Overlay premium para legibilidad */}
-        <div className="absolute inset-0 bg-background/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/38 to-background/72" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/45" />
+        {/* Overlay suave para mantener lectura sin borrar la imagen */}
+        <div className="absolute inset-0 bg-background/38" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/62 via-background/20 to-background/58" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/35 via-transparent to-background/30" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
@@ -64,7 +64,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="rounded-2xl p-8 lg:p-10 border border-white/45 bg-white/28 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.16)] ring-1 ring-white/25"
+              className="rounded-2xl p-8 lg:p-10 border border-white/55 bg-white/34 backdrop-blur-xl shadow-[0_24px_70px_rgba(0,0,0,0.18)] ring-1 ring-white/35"
             >
               <div className="flex gap-1 mb-6">
                 {Array(5).fill(0).map((_, i) => (
@@ -80,7 +80,7 @@ export default function Testimonials() {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-14 h-14 rounded-full object-cover border border-white/60 shadow-sm"
+                  className="w-14 h-14 rounded-full object-cover border border-white/70 shadow-sm"
                 />
                 <div>
                   <p className="font-body font-semibold text-foreground">
