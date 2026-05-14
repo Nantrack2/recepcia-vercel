@@ -18,6 +18,8 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
+    onScroll();
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -33,14 +35,26 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? "h-16" : "h-20"}`}>
-          <a href="#" className="flex items-center gap-2.5 font-heading text-xl tracking-tight text-foreground">
+        <div
+          className={`flex items-center justify-between transition-all duration-500 ${
+            scrolled ? "h-20" : "h-24"
+          }`}
+        >
+          <a
+            href="#"
+            className="flex items-center gap-2 font-heading tracking-tight text-foreground"
+            aria-label="RecepcIA inicio"
+          >
             <img
               src="https://media.base44.com/images/public/6a0199cf8fb5d6b97d254986/fd0ec941b_Logo_RecepcIA_Sense_fons.png"
               alt="RecepcIA logo"
-              className="h-10 w-10 sm:h-9 sm:w-9 object-contain"
+              className="h-16 w-16 sm:h-18 sm:w-18 lg:h-20 lg:w-20 object-contain"
             />
-            <span><span className="text-foreground">Recepc</span><span className="text-accent">IA</span></span>
+
+            <span className="text-2xl sm:text-3xl lg:text-4xl font-normal leading-none">
+              <span className="text-foreground font-normal">Recepc</span>
+              <span className="text-accent font-normal">IA</span>
+            </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -57,7 +71,7 @@ export default function Navbar() {
 
           <div className="hidden md:block">
             <a href="#contacto">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-body text-sm px-6 rounded-full">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-body text-sm px-7 py-5 rounded-full">
                 Agendar Demo
               </Button>
             </a>
@@ -66,8 +80,10 @@ export default function Navbar() {
           <button
             className="md:hidden text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+            type="button"
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
@@ -91,6 +107,7 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+
               <a href="#contacto" onClick={() => setMobileOpen(false)}>
                 <Button className="w-full bg-primary text-primary-foreground rounded-full mt-2">
                   Agendar Demo
