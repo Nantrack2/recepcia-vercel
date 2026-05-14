@@ -9,13 +9,11 @@ import {
   Clock3,
   DatabaseZap,
   Headphones,
-  Hotel,
   Mail,
   Menu,
   MessageCircle,
   Phone,
   ShieldCheck,
-  Sparkles,
   Target,
   X
 } from 'lucide-react';
@@ -41,22 +39,22 @@ const challengeCards = [
   {
     icon: <Clock3 aria-hidden="true" />,
     title: 'Leads sin responder',
-    text: 'Cada minuto cuenta, puedes perder reservas oportunamente.'
+    text: 'Cada minuto cuenta. Perder una consulta puede convertirse en una reserva perdida.'
   },
   {
     icon: <DatabaseZap aria-hidden="true" />,
     title: 'Procesos manuales',
-    text: 'La carga de trabajo innecesaria está afectando tu eficiencia.'
+    text: 'La carga de trabajo repetitiva reduce la eficiencia del equipo de recepción.'
   },
   {
     icon: <Target aria-hidden="true" />,
     title: 'Falta de seguimiento',
-    text: 'Las oportunidades que no se siguen adecuadamente no convierten.'
+    text: 'Las oportunidades que no se siguen a tiempo difícilmente se convierten.'
   },
   {
     icon: <CalendarDays aria-hidden="true" />,
     title: 'No-shows',
-    text: 'La falta de confirmaciones afecta tu tasa de ocupación.'
+    text: 'La falta de confirmaciones y recordatorios afecta la ocupación real.'
   }
 ];
 
@@ -70,19 +68,19 @@ const solutionCards = [
   {
     icon: <DatabaseZap aria-hidden="true" />,
     title: 'Base de Datos Inteligente',
-    text: 'Gestiona automáticamente reservas, preferencias del huésped e historial de estancia con acceso inmediato.',
+    text: 'Gestiona automáticamente reservas, preferencias del huésped e historial de contacto con acceso inmediato.',
     tag: 'Acceso instantáneo'
   },
   {
     icon: <CheckCircle2 aria-hidden="true" />,
     title: 'Check-in y Check-out Automatizado',
-    text: 'Proceso de entrada y salida sin esperas, gestionado por IA con validación de identidad y asignación de habitaciones.',
-    tag: 'Tiempo de espera'
+    text: 'Procesos de entrada y salida más ágiles, con validación de datos y mejor organización interna.',
+    tag: 'Menos esperas'
   },
   {
     icon: <MessageCircle aria-hidden="true" />,
     title: 'Atención al Cliente Omnicanal',
-    text: 'Un único agente IA responde por teléfono, WhatsApp, email y chat web con coherencia total y tono personalizado.',
+    text: 'Un único sistema responde por teléfono, WhatsApp, email y chat web con coherencia y tono personalizado.',
     tag: 'Todos los canales'
   }
 ];
@@ -91,32 +89,36 @@ const processSteps = [
   {
     number: '01',
     title: 'Consultoría gratuita',
-    text: 'Entendemos tus necesidades específicas y los desafíos de tu hotel.'
+    text: 'Entendemos tus necesidades específicas y los desafíos reales de tu recepción.'
   },
   {
     number: '02',
     title: 'Implementación IA',
-    text: 'Configuramos e implementamos la solución de IA personalizada.'
+    text: 'Configuramos una primera capa de automatización útil, segura y medible.'
   },
   {
     number: '03',
     title: 'Resultados',
-    text: 'Obtén resultados medibles en una semana para empezar.'
+    text: 'Medimos el impacto, revisamos oportunidades y priorizamos las siguientes mejoras.'
   }
 ];
 
 const testimonials = [
   {
     quote:
-      'Hemos aumentado nuestras conversiones en un 40%. ¡RecepcIA es una inversión que vale la pena!',
+      'Hemos aumentado nuestras conversiones en un 40%. RecepcIA es una inversión que vale la pena.',
     name: 'María Rodríguez',
-    role: 'Directora, Hotel Boutique Las Palmas'
+    role: 'Directora, Hotel Boutique Las Palmas',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80'
   },
   {
     quote:
-      'Ahorro 15 horas a la semana gracias a la automatización. ¡Recomiendo RecepcIA sin dudarlo!',
+      'Ahorro 15 horas a la semana gracias a la automatización. Recomiendo RecepcIA sin dudarlo.',
     name: 'Carlos Mendoza',
-    role: 'Propietario, Resort Vista Mar'
+    role: 'Propietario, Resort Vista Mar',
+    image:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80'
   }
 ];
 
@@ -124,33 +126,33 @@ const benefits = [
   {
     icon: <ArrowUpRight aria-hidden="true" />,
     title: 'Aumento de Reservas',
-    text: 'Captación de clientes optimizada con inteligencia artificial.'
+    text: 'Captación optimizada de clientes con inteligencia artificial.'
   },
   {
     icon: <Clock3 aria-hidden="true" />,
     title: 'Menos Trabajo Manual',
-    text: 'Automatización que te libera tiempo para lo que realmente importa.'
+    text: 'Automatización que libera tiempo para tareas de mayor valor.'
   },
   {
     icon: <Headphones aria-hidden="true" />,
     title: 'Mejora en la Comunicación',
-    text: 'Respuestas 24/7 a potenciales huéspedes sin intervención humana.'
+    text: 'Respuestas disponibles 24/7 sin saturar al equipo humano.'
   },
   {
     icon: <Target aria-hidden="true" />,
     title: 'Seguimiento Efectivo',
-    text: 'Conversión de leads asegurada con seguimiento inteligente.'
+    text: 'Leads registrados y preparados para una gestión comercial ordenada.'
   }
 ];
 
 const faqs = [
   {
     q: '¿Cuánto tiempo lleva implementar estas soluciones?',
-    a: 'La primera capa puede prepararse de forma progresiva. Empezamos con captación y seguimiento antes de automatizar procesos más avanzados.'
+    a: 'La primera capa puede prepararse de forma progresiva. Empezamos por captación, respuesta inicial y seguimiento antes de automatizar procesos más complejos.'
   },
   {
     q: '¿Qué tipo de soporte recibiré después de la implementación?',
-    a: 'Recibirás acompañamiento para revisar resultados, ajustar mensajes y priorizar mejoras con impacto real.'
+    a: 'Tendrás acompañamiento para revisar resultados, ajustar mensajes y priorizar mejoras con impacto real.'
   },
   {
     q: '¿Se puede personalizar la herramienta según mis necesidades?',
@@ -158,11 +160,38 @@ const faqs = [
   },
   {
     q: '¿Cómo se integrará con mi sistema actual?',
-    a: 'Primero analizamos tu sistema actual. Después conectamos solo lo necesario, evitando cambios bruscos o riesgos innecesarios.'
+    a: 'Primero analizamos tu operativa actual. Después conectamos solo lo necesario, evitando cambios bruscos o riesgos innecesarios.'
   },
   {
     q: '¿Qué resultados puedo esperar a corto plazo?',
     a: 'Menos leads perdidos, mejor respuesta inicial, más seguimiento y una recepción menos saturada.'
+  }
+];
+
+const contactInfo = [
+  {
+    icon: <Mail aria-hidden="true" />,
+    label: 'Email',
+    value: 'info@pimeia.es',
+    href: 'mailto:info@pimeia.es'
+  },
+  {
+    icon: <Phone aria-hidden="true" />,
+    label: 'Teléfono 24/7',
+    value: '936 943 575',
+    href: 'tel:+34936943575'
+  },
+  {
+    icon: <MessageCircle aria-hidden="true" />,
+    label: 'WhatsApp',
+    value: '609 785 645',
+    href: 'https://wa.me/34609785645'
+  },
+  {
+    icon: <Clock3 aria-hidden="true" />,
+    label: 'Disponibilidad',
+    value: 'Atención inteligente 24/7',
+    href: null
   }
 ];
 
@@ -216,7 +245,7 @@ function Header() {
           aria-label="Abrir menú"
           onClick={() => setMobileOpen((value) => !value)}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
       </div>
 
@@ -416,7 +445,7 @@ function Testimonials() {
             <div className="stars">★★★★★</div>
             <blockquote>“{item.quote}”</blockquote>
             <div className="author">
-              <div className="avatar" aria-hidden="true" />
+              <img src={item.image} alt={item.name} />
               <div>
                 <strong>{item.name}</strong>
                 <span>{item.role}</span>
@@ -541,6 +570,7 @@ function ContactForm() {
           business_name: formData.business_name,
           message: formData.message,
           website: formData.website,
+          honeypot: formData.website,
           consent: formData.consent,
           page_url: window.location.href,
           user_agent: navigator.userAgent
@@ -579,114 +609,133 @@ function ContactForm() {
   };
 
   return (
-    <section id="contacto" className="contact-minimal-section">
+    <section id="contacto" className="contact-section-wrap">
       <div className="section-shell">
-        <div className="section-heading centered contact-heading">
-          <span className="section-kicker">Contacto</span>
-          <h2>Listo para Automatizar tu Negocio</h2>
-          <p>Completa el formulario y un especialista se pondrá en contacto contigo.</p>
-        </div>
+        <div className="contact-layout">
+          <aside className="contact-panel">
+            <span className="section-kicker">Demo gratuita</span>
+            <h2>Cuéntanos qué parte de tu recepción quieres automatizar.</h2>
+            <p>
+              Recibirás una respuesta para revisar tu caso y priorizar una primera automatización
+              segura.
+            </p>
 
-        <form className="minimal-form" onSubmit={submitLead} noValidate>
-          <input
-            className="honeypot"
-            type="text"
-            name="website"
-            value={formData.website}
-            onChange={updateField}
-            tabIndex="-1"
-            autoComplete="off"
-            aria-hidden="true"
-          />
+            <div className="contact-methods">
+              {contactInfo.map((item) =>
+                item.href ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith('https') ? '_blank' : undefined}
+                    rel={item.href.startsWith('https') ? 'noreferrer' : undefined}
+                  >
+                    <span className="contact-icon">{item.icon}</span>
+                    <span>
+                      <small>{item.label}</small>
+                      {item.value}
+                    </span>
+                  </a>
+                ) : (
+                  <div key={item.label}>
+                    <span className="contact-icon">{item.icon}</span>
+                    <span>
+                      <small>{item.label}</small>
+                      {item.value}
+                    </span>
+                  </div>
+                )
+              )}
+            </div>
+          </aside>
 
-          <label>
-            Nombre *
+          <form className="premium-form" onSubmit={submitLead} noValidate>
             <input
-              name="name"
-              value={formData.name}
+              className="honeypot"
+              type="text"
+              name="website"
+              value={formData.website}
               onChange={updateField}
-              required
-              placeholder="Tu nombre completo"
+              tabIndex="-1"
+              autoComplete="off"
+              aria-hidden="true"
             />
-          </label>
 
-          <label>
-            Teléfono
-            <input
-              name="phone"
-              value={formData.phone}
-              onChange={updateField}
-              placeholder="+34 600 000 000"
-            />
-          </label>
+            <div className="form-grid">
+              <label>
+                Nombre *
+                <input
+                  name="name"
+                  value={formData.name}
+                  onChange={updateField}
+                  required
+                  placeholder="Tu nombre completo"
+                />
+              </label>
 
-          <label>
-            Email *
-            <input
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={updateField}
-              required
-              placeholder="tu@email.com"
-            />
-          </label>
+              <label>
+                Teléfono
+                <input
+                  name="phone"
+                  value={formData.phone}
+                  onChange={updateField}
+                  placeholder="+34 600 000 000"
+                />
+              </label>
 
-          <label>
-            Nombre del negocio
-            <input
-              name="business_name"
-              value={formData.business_name}
-              onChange={updateField}
-              placeholder="Hotel / Resort"
-            />
-          </label>
+              <label>
+                Email *
+                <input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={updateField}
+                  required
+                  placeholder="tu@email.com"
+                />
+              </label>
 
-          <label className="full-width">
-            Mensaje
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={updateField}
-              rows="4"
-              placeholder="Cuéntanos sobre tu hotel y qué te gustaría automatizar..."
-            />
-          </label>
+              <label>
+                Nombre del negocio
+                <input
+                  name="business_name"
+                  value={formData.business_name}
+                  onChange={updateField}
+                  placeholder="Hotel / Resort"
+                />
+              </label>
 
-          <label className="checkbox full-width">
-            <input
-              type="checkbox"
-              name="consent"
-              checked={formData.consent}
-              onChange={updateField}
-            />
-            <span>
-              Acepto que <strong>RecepcIA / PimeIA</strong> trate mis datos para contactar conmigo sobre mi solicitud.
-              <small> Campo obligatorio</small>
-            </span>
-          </label>
+              <label className="full-width">
+                Mensaje
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={updateField}
+                  rows="4"
+                  placeholder="Cuéntanos sobre tu hotel y qué te gustaría automatizar..."
+                />
+              </label>
+            </div>
 
-          {status.message && <div className={`form-status ${status.state}`}>{status.message}</div>}
+            <label className="checkbox">
+              <input
+                type="checkbox"
+                name="consent"
+                checked={formData.consent}
+                onChange={updateField}
+              />
+              <span>
+                Acepto que <strong>RecepcIA / PimeIA</strong> trate mis datos para contactar conmigo
+                sobre mi solicitud. <small>Campo obligatorio</small>
+              </span>
+            </label>
 
-          <button className="primary-button full-width" type="submit" disabled={status.state === 'loading'}>
-            {status.state === 'loading' ? 'Enviando...' : 'Quiero automatizar mi negocio'}{' '}
-            <ArrowRight size={17} />
-          </button>
-        </form>
+            {status.message && <div className={`form-status ${status.state}`}>{status.message}</div>}
 
-        <div className="contact-inline">
-          <a href="mailto:info@pimeia.es">
-            <Mail size={16} /> info@pimeia.es
-          </a>
-          <a href="tel:+34936943575">
-            <Phone size={16} /> 936 943 575
-          </a>
-          <a href="https://wa.me/34609785645" target="_blank" rel="noreferrer">
-            <MessageCircle size={16} /> WhatsApp · 609 785 645
-          </a>
-          <span>
-            <Clock3 size={16} /> Atención inteligente 24/7
-          </span>
+            <button className="primary-button form-button" type="submit" disabled={status.state === 'loading'}>
+              {status.state === 'loading' ? 'Enviando...' : 'Quiero automatizar mi negocio'}{' '}
+              <ArrowRight size={17} />
+            </button>
+          </form>
         </div>
       </div>
     </section>
