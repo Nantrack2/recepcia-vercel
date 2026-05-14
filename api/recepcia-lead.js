@@ -82,7 +82,7 @@ function buildInternalEmailHtml(lead, insertedId) {
   `;
 }
 
-function buildLeadEmailText(lead, siteUrl) {
+function buildLeadEmailText(lead) {
   const name = clean(lead.name) || 'Hola';
   const message = clean(lead.message) || 'tu solicitud';
   const year = new Date().getFullYear();
@@ -103,7 +103,7 @@ Qué miraremos primero:
 No se trata de sustituir la atención de tu equipo, sino de liberar tiempo, responder antes y evitar que las oportunidades se pierdan por falta de seguimiento.
 
 Ver RecepcIA:
-${siteUrl}/#contacto
+https://recepcia.es/#contacto
 
 Automatización pensada para hoteles
 RecepcIA puede ayudarte a responder consultas, registrar leads, preparar seguimientos, reducir tareas manuales y ofrecer una primera atención más rápida y consistente sin saturar tu recepción.
@@ -114,12 +114,13 @@ info@pimeia.es · 936 943 575 · WhatsApp 609 785 645
 © ${year} RecepcIA / PimeIA. Todos los derechos reservados.`;
 }
 
-function buildLeadEmailHtml(lead, siteUrl) {
+function buildLeadEmailHtml(lead) {
   const name = escapeHtml(lead.name) || 'Hola';
   const message = escapeHtml(lead.message || 'tu solicitud');
   const year = new Date().getFullYear();
-  const recepciaUrl = `${siteUrl}/#contacto`;
-  const imageUrl = `${siteUrl}/recepcia-email-visual.png`;
+
+  const recepciaUrl = 'https://recepcia.es/#contacto';
+  const imageUrl = 'https://recepcia.es/recepcia-email-visual.png';
 
   return `<!doctype html>
 <html lang="es" dir="auto" xmlns="http://www.w3.org/1999/xhtml">
@@ -365,15 +366,13 @@ export default async function handler(req, res) {
 
     if (shouldSendLeadAutoreply) {
       try {
-        const siteUrl = getPublicBaseUrl(req);
-
         await resend.emails.send({
           from: `${fromName} <${fromEmail}>`,
           to: [lead.email],
           replyTo,
           subject: 'Hemos recibido tu solicitud en RecepcIA',
-          html: buildLeadEmailHtml(lead, siteUrl),
-          text: buildLeadEmailText(lead, siteUrl)
+          html: buildLeadEmailHtml(lead),
+          text: buildLeadEmailText(lead)
         });
 
         leadEmailSent = true;
