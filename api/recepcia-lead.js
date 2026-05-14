@@ -92,7 +92,7 @@ function buildLeadEmailText(lead, siteUrl) {
 Gracias, ${name}.
 Vamos a revisar cómo automatizar tu recepción.
 
-Hemos recibido tu solicitud en RecepcIA sobre ${message}. Revisaremos tu caso y nos pondremos en contacto contigo a la mayor brevedad posible para mostrarte nuestras soluciones.
+Hemos recibido tu solicitud en RecepcIA sobre "${message}". Revisaremos tu caso y nos pondremos en contacto contigo a la mayor brevedad posible para mostrarte nuestras soluciones.
 
 Qué miraremos primero:
 1. Si estás perdiendo reservas por responder tarde a consultas o llamadas.
@@ -173,7 +173,7 @@ function buildLeadEmailHtml(lead, siteUrl) {
               Gracias, ${name}.<br>Vamos a revisar cómo automatizar tu recepción.
             </h1>
             <p style="margin:22px 0 0 0;color:#D8D0C2;font-family:Arial, Helvetica, sans-serif;font-size:16px;line-height:1.65;text-align:center;">
-              Hemos recibido tu solicitud en RecepcIA sobre ${message}. Revisaremos tu caso y nos pondremos en contacto contigo a la mayor brevedad posible para mostrarte nuestras soluciones.
+              Hemos recibido tu solicitud en RecepcIA sobre "${message}". Revisaremos tu caso y nos pondremos en contacto contigo a la mayor brevedad posible para mostrarte nuestras soluciones.
             </p>
           </td>
         </tr>
