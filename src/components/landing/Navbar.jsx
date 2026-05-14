@@ -37,21 +37,21 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div
           className={`flex items-center justify-between transition-all duration-500 ${
-            scrolled ? "h-20" : "h-24"
+            scrolled ? "h-24" : "h-28"
           }`}
         >
           <a
             href="#"
-            className="flex items-center gap-2 font-heading tracking-tight text-foreground"
+            className="flex items-center gap-1 font-heading tracking-tight text-foreground"
             aria-label="RecepcIA inicio"
           >
             <img
               src="https://media.base44.com/images/public/6a0199cf8fb5d6b97d254986/fd0ec941b_Logo_RecepcIA_Sense_fons.png"
               alt="RecepcIA logo"
-              className="h-16 w-16 sm:h-18 sm:w-18 lg:h-20 lg:w-20 object-contain"
+              className="h-20 w-20 sm:h-24 sm:w-24 lg:h-26 lg:w-26 object-contain"
             />
 
-            <span className="text-2xl sm:text-3xl lg:text-4xl font-normal leading-none">
+            <span className="text-2xl sm:text-3xl lg:text-4xl font-normal leading-none -ml-1">
               <span className="text-foreground font-normal">Recepc</span>
               <span className="text-accent font-normal">IA</span>
             </span>
