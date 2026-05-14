@@ -6,7 +6,7 @@
 
   --background: #f5f0e7;
   --background-soft: #f8f5ef;
-  --surface: rgba(255, 255, 255, 0.72);
+  --surface: rgba(255, 255, 255, 0.68);
   --surface-solid: #fbfaf7;
   --foreground: #090807;
   --muted: #6c6258;
@@ -17,7 +17,7 @@
   --gold-soft: rgba(185, 130, 47, 0.14);
   --border: rgba(49, 39, 29, 0.14);
   --border-strong: rgba(49, 39, 29, 0.24);
-  --shadow: 0 28px 80px rgba(44, 33, 21, 0.12);
+  --shadow: 0 34px 90px rgba(44, 33, 21, 0.12);
   --shadow-soft: 0 18px 46px rgba(44, 33, 21, 0.08);
   --radius-lg: 30px;
   --radius-md: 20px;
@@ -58,12 +58,16 @@ textarea {
 }
 
 .section-shell {
-  width: min(var(--shell), calc(100% - 48px));
+  width: min(var(--shell), calc(100% - 56px));
   margin: 0 auto;
 }
 
 .section {
-  padding: clamp(6.5rem, 10vw, 10rem) 0;
+  padding: clamp(8rem, 13vw, 13rem) 0;
+}
+
+.section + .section {
+  border-top: 1px solid rgba(49, 39, 29, 0.04);
 }
 
 .section-soft {
@@ -71,7 +75,7 @@ textarea {
 }
 
 .section-heading {
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(4rem, 7vw, 6.5rem);
 }
 
 .section-heading.centered {
@@ -87,22 +91,22 @@ textarea {
   font-family: var(--font-heading);
   font-weight: 400;
   letter-spacing: -0.055em;
-  line-height: 0.96;
+  line-height: 0.98;
   color: var(--foreground);
-  font-size: clamp(2.55rem, 5vw, 5.4rem);
+  font-size: clamp(2.7rem, 5vw, 5.2rem);
 }
 
 .section-heading.centered h2 {
-  max-width: 820px;
+  max-width: 880px;
   margin: 0 auto;
 }
 
 .section-kicker {
-  margin: 0 0 1.1rem;
+  margin: 0 0 1.15rem;
   color: var(--gold);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  font-size: 0.76rem;
   font-weight: 800;
 }
 
@@ -131,7 +135,7 @@ textarea {
 .primary-button {
   background: var(--primary);
   color: #fffaf0;
-  padding: 0 1.65rem;
+  padding: 0 1.75rem;
   box-shadow: 0 16px 34px rgba(6, 63, 52, 0.18);
 }
 
@@ -142,8 +146,8 @@ textarea {
 }
 
 .primary-button.small {
-  min-height: 42px;
-  padding: 0 1.25rem;
+  min-height: 43px;
+  padding: 0 1.28rem;
   font-size: 0.82rem;
 }
 
@@ -167,7 +171,7 @@ textarea {
 }
 
 .center-action {
-  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: clamp(3rem, 5vw, 4.8rem);
   text-align: center;
 }
 
@@ -177,7 +181,7 @@ textarea {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  background: rgba(248, 245, 239, 0.78);
+  background: rgba(248, 245, 239, 0.82);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(49, 39, 29, 0.08);
   box-shadow: 0 10px 30px rgba(42, 32, 22, 0.04);
@@ -293,7 +297,7 @@ textarea {
   background-image: url('https://media.base44.com/images/public/6a0199cf8fb5d6b97d254986/bcbf18578_generated_image.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  opacity: 0.78;
 }
 
 .hero-overlay {
@@ -304,8 +308,8 @@ textarea {
       90deg,
       rgba(245, 240, 231, 0.98) 0%,
       rgba(245, 240, 231, 0.89) 34%,
-      rgba(245, 240, 231, 0.56) 68%,
-      rgba(245, 240, 231, 0.32) 100%
+      rgba(245, 240, 231, 0.58) 68%,
+      rgba(245, 240, 231, 0.34) 100%
     ),
     linear-gradient(
       180deg,
@@ -341,11 +345,11 @@ textarea {
 
 .hero-copy h1 {
   margin: 0;
-  max-width: 850px;
+  max-width: 780px;
   font-family: var(--font-heading);
-  font-size: clamp(4rem, 6.4vw, 7rem);
-  line-height: 0.92;
-  letter-spacing: -0.065em;
+  font-size: clamp(3.85rem, 5.9vw, 6.45rem);
+  line-height: 0.94;
+  letter-spacing: -0.058em;
   font-weight: 400;
   color: var(--foreground);
 }
@@ -358,24 +362,24 @@ textarea {
 
 .hero-subtitle {
   max-width: 590px;
-  margin: 1.6rem 0 0;
+  margin: 1.7rem 0 0;
   color: var(--muted);
-  font-size: clamp(1rem, 1.2vw, 1.18rem);
-  line-height: 1.65;
+  font-size: clamp(1rem, 1.2vw, 1.16rem);
+  line-height: 1.68;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2.4rem;
+  margin-top: 2.5rem;
 }
 
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(3, max-content);
   gap: 0;
-  margin-top: clamp(3.4rem, 6vw, 5rem);
+  margin-top: clamp(4.2rem, 6vw, 5.4rem);
 }
 
 .hero-stats div {
@@ -417,9 +421,9 @@ textarea {
 }
 
 .problem-card {
-  min-height: 210px;
-  padding: 1.35rem;
-  border-radius: 10px;
+  min-height: 230px;
+  padding: 1.45rem;
+  border-radius: 12px;
   background: #11100f;
   color: white;
   display: flex;
@@ -463,7 +467,7 @@ textarea {
 
 .wide-image {
   position: relative;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.6rem;
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -472,7 +476,7 @@ textarea {
 
 .wide-image img {
   width: 100%;
-  height: clamp(210px, 26vw, 360px);
+  height: clamp(230px, 28vw, 380px);
   object-fit: cover;
   display: block;
 }
@@ -498,14 +502,14 @@ textarea {
 .solution-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
 .solution-card {
   display: grid;
   grid-template-columns: 48px 1fr;
   gap: 1rem;
-  padding: 1.25rem;
+  padding: 1.35rem;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid var(--border);
@@ -537,12 +541,12 @@ textarea {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 2.8rem;
 }
 
 .metrics-grid div {
-  padding: 1.5rem;
-  border-radius: 10px;
+  padding: 1.65rem;
+  border-radius: 12px;
   background: #11100f;
   text-align: center;
 }
@@ -577,7 +581,7 @@ textarea {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
-  gap: clamp(3rem, 7vw, 6rem);
+  gap: clamp(4rem, 8vw, 7rem);
 }
 
 .process-image {
@@ -588,31 +592,31 @@ textarea {
 
 .process-image img {
   width: 100%;
-  height: clamp(320px, 42vw, 520px);
+  height: clamp(340px, 42vw, 540px);
   object-fit: cover;
   display: block;
 }
 
 .process-copy h2 {
-  margin: 0 0 2.5rem;
+  margin: 0 0 2.8rem;
   font-family: var(--font-heading);
-  font-size: clamp(3.2rem, 6vw, 6rem);
-  line-height: 0.9;
-  letter-spacing: -0.06em;
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
   font-weight: 400;
 }
 
 .process-steps {
   display: grid;
   gap: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 2.4rem;
 }
 
 .process-step {
   display: grid;
   grid-template-columns: 60px 1fr;
   gap: 1.2rem;
-  padding: 1.4rem 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border-strong);
 }
 
@@ -635,8 +639,8 @@ textarea {
 
 .quote-card {
   max-width: 980px;
-  margin: clamp(5rem, 8vw, 7rem) auto 0;
-  padding: clamp(2.5rem, 5vw, 4rem);
+  margin: clamp(6rem, 9vw, 8rem) auto 0;
+  padding: clamp(2.8rem, 5vw, 4.2rem);
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid var(--border);
@@ -665,59 +669,88 @@ textarea {
 
 /* TESTIMONIALS */
 
+#testimonios.section {
+  padding-top: clamp(9rem, 13vw, 14rem);
+  padding-bottom: clamp(9rem, 13vw, 14rem);
+  background: #fbfaf7;
+}
+
+#testimonios .section-heading {
+  margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
 .testimonial-grid {
+  max-width: 1040px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
 }
 
 .testimonial-card {
-  padding: clamp(2.2rem, 4vw, 3rem);
+  min-height: 300px;
+  padding: clamp(2.3rem, 4vw, 3.3rem);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.56);
   border: 1px solid var(--border);
-  box-shadow: 0 18px 54px rgba(44, 33, 21, 0.06);
+  box-shadow: 0 18px 54px rgba(44, 33, 21, 0.055);
+  display: flex;
+  flex-direction: column;
 }
 
 .stars {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.34rem;
   color: var(--gold);
-  margin-bottom: 1.8rem;
+  margin-bottom: 2.1rem;
+}
+
+.stars svg {
+  width: 21px;
+  height: 21px;
 }
 
 .testimonial-card p {
   margin: 0;
   max-width: 460px;
   color: var(--foreground);
-  font-size: 1.08rem;
+  font-size: 1.18rem;
   line-height: 1.65;
   font-style: italic;
+  font-weight: 400;
 }
 
 .person {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  margin-top: 2.4rem;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 2.8rem;
 }
 
 .person img {
-  width: 56px;
-  height: 56px;
+  width: 54px;
+  height: 54px;
   border-radius: 999px;
   object-fit: cover;
+  display: block;
+  flex: 0 0 auto;
 }
 
 .person strong {
   display: block;
   color: var(--foreground);
   font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 0.28rem;
 }
 
 .person span {
+  display: block;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.35;
 }
 
 /* BENEFITS */
@@ -725,16 +758,16 @@ textarea {
 .benefit-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: clamp(1.8rem, 4vw, 3.5rem);
 }
 
 .benefit-card {
-  text-align: center;
-  padding: 1rem;
+  text-align: left;
+  padding: 0;
 }
 
 .benefit-card .gold-icon {
-  margin: 0 auto 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .benefit-card p {
@@ -746,13 +779,18 @@ textarea {
 
 /* FAQ */
 
+#faq.section {
+  padding-top: clamp(9rem, 13vw, 14rem);
+  padding-bottom: clamp(9rem, 13vw, 14rem);
+}
+
 .faq-shell {
-  max-width: 840px;
+  max-width: 940px;
 }
 
 .faq-list {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
 .faq-list details {
@@ -765,7 +803,7 @@ textarea {
 .faq-list summary {
   list-style: none;
   cursor: pointer;
-  padding: 1.05rem 1.25rem;
+  padding: 1.12rem 1.35rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -788,7 +826,7 @@ textarea {
 
 .faq-list p {
   margin: 0;
-  padding: 0 1.25rem 1.2rem;
+  padding: 0 1.35rem 1.25rem;
   color: var(--muted);
   line-height: 1.6;
 }
@@ -797,6 +835,8 @@ textarea {
 
 .contact-section {
   position: relative;
+  padding-top: clamp(9rem, 13vw, 14rem);
+  padding-bottom: clamp(9rem, 13vw, 14rem);
   background:
     linear-gradient(
       90deg,
@@ -811,10 +851,10 @@ textarea {
 
 .contact-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 0.78fr) minmax(480px, 1.22fr);
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(300px, 0.82fr) minmax(520px, 1.18fr);
+  gap: clamp(4rem, 7vw, 6rem);
   align-items: center;
-  max-width: 1100px;
+  max-width: 1120px;
 }
 
 .contact-card,
@@ -827,32 +867,32 @@ textarea {
 }
 
 .contact-card {
-  min-height: 570px;
-  padding: clamp(2rem, 4vw, 3.2rem);
+  min-height: 580px;
+  padding: clamp(2.4rem, 4vw, 3.4rem);
   display: flex;
   flex-direction: column;
 }
 
 .contact-card h2 {
-  max-width: 9.8ch;
-  margin: 1rem 0 1.35rem;
+  max-width: 10.3ch;
+  margin: 1rem 0 1.55rem;
   font-family: var(--font-heading);
-  font-size: clamp(3.15rem, 4.8vw, 4.8rem);
-  line-height: 0.94;
-  letter-spacing: -0.062em;
+  font-size: clamp(3.05rem, 4.6vw, 4.55rem);
+  line-height: 0.96;
+  letter-spacing: -0.058em;
   font-weight: 400;
 }
 
 .contact-card p {
-  margin: 0 0 2rem;
+  margin: 0 0 2.4rem;
   color: var(--muted);
   font-size: 1rem;
-  line-height: 1.72;
+  line-height: 1.76;
 }
 
 .contact-methods {
   display: grid;
-  gap: 1rem;
+  gap: 1.15rem;
   margin-top: auto;
 }
 
@@ -861,7 +901,7 @@ textarea {
   display: grid;
   grid-template-columns: 38px 1fr;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.9rem;
   color: var(--primary);
   text-decoration: none;
   font-weight: 800;
@@ -887,18 +927,37 @@ textarea {
 }
 
 .contact-form {
-  padding: clamp(2rem, 4vw, 3rem);
+  padding: clamp(2.5rem, 4vw, 3.4rem);
+}
+
+/* Amaga qualsevol camp trampa o input accidental visible a sobre de Nombre */
+.hidden-field,
+input[name='honeypot'],
+.contact-form > input[type='text']:first-child,
+.contact-form > input[aria-hidden='true'] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
 }
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.65rem 2.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.15rem 3rem;
 }
 
 .form-grid label {
   display: grid;
-  gap: 0.58rem;
+  gap: 0.72rem;
   color: var(--muted-strong);
   font-size: 0.86rem;
   font-weight: 650;
@@ -917,7 +976,7 @@ textarea {
   border-radius: 0;
   box-shadow: none;
   outline: none;
-  padding: 0.55rem 0 0.86rem;
+  padding: 0.65rem 0 1rem;
   color: var(--foreground);
   font-size: 1rem;
   font-weight: 400;
@@ -937,7 +996,7 @@ textarea {
 }
 
 .form-grid textarea {
-  min-height: 126px;
+  min-height: 138px;
   resize: vertical;
 }
 
@@ -946,13 +1005,13 @@ textarea {
 }
 
 .consent-row {
-  margin-top: 1.35rem;
+  margin-top: 2rem;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
   color: var(--muted);
   font-size: 0.82rem;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .consent-row input {
@@ -968,11 +1027,11 @@ textarea {
 }
 
 .form-message {
-  margin-top: 1.1rem;
+  margin-top: 1.6rem;
   display: flex;
   align-items: flex-start;
   gap: 0.7rem;
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.1rem;
   border-radius: 14px;
   font-weight: 650;
   font-size: 0.9rem;
@@ -1003,7 +1062,7 @@ textarea {
 
 .form-submit {
   width: 100%;
-  margin-top: 1.55rem;
+  margin-top: 2.7rem;
   border: 0;
 }
 
@@ -1012,14 +1071,10 @@ textarea {
   opacity: 0.74;
 }
 
-.hidden-field {
-  display: none !important;
-}
-
 /* FINAL CTA */
 
 .final-cta {
-  padding: clamp(5rem, 8vw, 7rem) 0;
+  padding: clamp(7rem, 10vw, 10rem) 0;
   background: #11100f;
   color: #fffaf0;
   text-align: center;
@@ -1029,8 +1084,8 @@ textarea {
   margin: 0;
   font-family: var(--font-heading);
   font-weight: 400;
-  font-size: clamp(2.8rem, 5vw, 5.4rem);
-  letter-spacing: -0.06em;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  letter-spacing: -0.055em;
   line-height: 1;
 }
 
@@ -1041,7 +1096,7 @@ textarea {
 
 .final-cta p {
   max-width: 620px;
-  margin: 1.3rem auto 2.2rem;
+  margin: 1.4rem auto 2.4rem;
   color: rgba(255, 250, 240, 0.72);
   line-height: 1.65;
 }
@@ -1054,7 +1109,7 @@ textarea {
 }
 
 .footer-inner {
-  min-height: 94px;
+  min-height: 104px;
   display: grid;
   grid-template-columns: 220px 1fr 260px;
   align-items: center;
@@ -1124,7 +1179,7 @@ textarea {
   }
 
   .hero-copy h1 {
-    font-size: clamp(3.7rem, 11vw, 6.4rem);
+    font-size: clamp(3.7rem, 11vw, 6.1rem);
   }
 
   .problem-grid,
@@ -1139,6 +1194,10 @@ textarea {
 
   .contact-card {
     min-height: auto;
+  }
+
+  .contact-layout {
+    max-width: 820px;
   }
 }
 
@@ -1178,7 +1237,7 @@ textarea {
 
   .hero-copy h1 {
     max-width: 420px;
-    font-size: clamp(3.35rem, 14vw, 5.2rem);
+    font-size: clamp(3.25rem, 13vw, 5rem);
   }
 
   .hero-subtitle {
@@ -1199,7 +1258,7 @@ textarea {
   .hero-stats {
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    margin-top: 2.6rem;
+    margin-top: 2.8rem;
   }
 
   .hero-stats div {
@@ -1216,12 +1275,19 @@ textarea {
     font-size: 0.72rem;
   }
 
-  .section {
-    padding: 5.2rem 0;
+  .section,
+  #testimonios.section,
+  #faq.section,
+  .contact-section {
+    padding: 6.8rem 0;
+  }
+
+  .section-heading {
+    margin-bottom: 3.2rem;
   }
 
   .section-heading h2 {
-    font-size: clamp(2.3rem, 11vw, 3.7rem);
+    font-size: clamp(2.3rem, 11vw, 3.65rem);
   }
 
   .problem-grid,
@@ -1233,20 +1299,28 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .testimonial-card {
+    min-height: auto;
+  }
+
   .contact-card,
   .contact-form {
     border-radius: 22px;
-    padding: 1.45rem;
+    padding: 1.6rem;
   }
 
   .contact-card h2 {
     max-width: 11ch;
-    font-size: clamp(2.9rem, 13vw, 4.1rem);
+    font-size: clamp(2.85rem, 12vw, 4rem);
+  }
+
+  .form-submit {
+    margin-top: 2.2rem;
   }
 
   .footer-inner {
     grid-template-columns: 1fr;
-    padding: 1.6rem 0;
+    padding: 1.8rem 0;
     text-align: center;
   }
 
