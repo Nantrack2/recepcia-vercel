@@ -20,8 +20,24 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonios" className="py-24 lg:py-32 bg-card">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section
+      id="testimonios"
+      className="relative overflow-hidden py-24 lg:py-32 bg-background"
+    >
+      {/* Imagen de fondo difuminada */}
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0 scale-110 bg-center bg-cover blur-[10px] opacity-55"
+          style={{ backgroundImage: "url('/testimonials-bg.png')" }}
+        />
+
+        {/* Overlay premium para legibilidad */}
+        <div className="absolute inset-0 bg-background/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/38 to-background/72" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/45" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +50,8 @@ export default function Testimonials() {
             Testimonios
             <span className="w-8 h-px bg-accent" />
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
+
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight drop-shadow-sm">
             Lo que dicen nuestros clientes
           </h2>
         </motion.div>
@@ -47,25 +64,31 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="bg-background rounded-2xl p-8 lg:p-10 border border-border/50"
+              className="rounded-2xl p-8 lg:p-10 border border-white/45 bg-white/28 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.16)] ring-1 ring-white/25"
             >
               <div className="flex gap-1 mb-6">
                 {Array(5).fill(0).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                  <Star key={i} className="w-5 h-5 fill-accent text-accent drop-shadow-sm" />
                 ))}
               </div>
+
               <p className="font-body text-foreground text-lg leading-relaxed italic mb-8">
                 "{testimonial.quote}"
               </p>
+
               <div className="flex items-center gap-4">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-14 h-14 rounded-full object-cover"
+                  className="w-14 h-14 rounded-full object-cover border border-white/60 shadow-sm"
                 />
                 <div>
-                  <p className="font-body font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="font-body text-sm text-muted-foreground">{testimonial.role}</p>
+                  <p className="font-body font-semibold text-foreground">
+                    {testimonial.name}
+                  </p>
+                  <p className="font-body text-sm text-foreground/75">
+                    {testimonial.role}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -82,7 +105,7 @@ export default function Testimonials() {
           <a href="#contacto">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-6 text-base font-body group"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-6 text-base font-body group shadow-lg shadow-primary/15"
             >
               Quiero resultados así
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
